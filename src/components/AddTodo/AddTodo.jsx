@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from 'uuid'
+import { Row, Col, Button, FormControl } from 'react-bootstrap'
+import s from './Addtodo.module.scss'
 
 function AddTodo({todo, setTodo}) {
 
@@ -19,10 +21,12 @@ function AddTodo({todo, setTodo}) {
   }
 
   return (
-    <div>
-      <input placeholder="Write your task" value={value} onChange={ (e) => setValue(e.target.value)}/>
-      <button onClick={saveTodo}>Save</button>
-    </div>
+    <Row>
+      <Col className={s.addTodoForm}>
+        <FormControl placeholder="Write your task" value={value} onChange={ (e) => setValue(e.target.value)}/>
+        <Button onClick={saveTodo} className={s.btn}>Save</Button>
+      </Col>
+    </Row>
   );
 }
 
