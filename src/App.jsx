@@ -24,12 +24,10 @@ function App() {
     }
   ]);
 
-  console.log(todos)
-
   return (
   <>
     <Header />
-    <AddTodo />
+    <AddTodo todo={todos} setTodo={setTodos}/>
     <TodoList todo={todos} setTodo={setTodos} />
   </>
   )
