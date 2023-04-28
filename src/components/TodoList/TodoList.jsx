@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Row, Col, Button, FormControl } from 'react-bootstrap'
+import React, { useEffect, useState } from "react";
+import { Button } from 'react-bootstrap'
 import s from './TodoList.module.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave, faTrash, faEdit, faLock, faLockOpen } from "@fortawesome/free-solid-svg-icons";
@@ -8,6 +8,11 @@ function TodoList({ todo, setTodo }) {
 
   const [edit, setEdit] = useState(null)
   const [value, setValue] = useState('')
+  const [filtered, setFiltered] = useState(todo)
+
+  useEffect( () => {
+    setFiltered(todo)
+  }, [todo])
 
   function deleteTodo(id) {
     let newTodo = [...todo].filter(item => item.id != id)
